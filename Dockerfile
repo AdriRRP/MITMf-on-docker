@@ -11,6 +11,7 @@ RUN sed -i 's|http://deb.debian.org/debian|http://archive.debian.org/debian|' /e
     python-pip \
     python-setuptools \
     python-twisted \
+    iptables \
     libpcap0.8-dev \
     libnetfilter-queue-dev \
     libssl-dev \
