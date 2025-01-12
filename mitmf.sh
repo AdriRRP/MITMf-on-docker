@@ -6,6 +6,16 @@ if [ "$(id -u)" -ne 0 ]; then
     exit 1
 fi
 
+# Check if required tools are installed
+REQUIRED_TOOLS=("iptables" "ip" "docker" "tee")
+
+for tool in "${REQUIRED_TOOLS[@]}"; do
+    if ! command -v $tool &> /dev/null; then
+        echo "Error: $tool is not installed. Please install it before running the script." 1>&2
+        exit 1
+    fi
+done
+
 # Check if the first argument is the interface (-i)
 if [[ "$1" != "-i" ]]; then
     echo "Usage: $0 -i <interface> [other MITMf arguments]"
