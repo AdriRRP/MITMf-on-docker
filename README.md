@@ -31,10 +31,10 @@ sudo docker build -t mitmf-docker .
 
 Once the image is built, you can use the included `mitmf.sh` script to run MITMf inside the Docker container. The script handles the execution of the container and passes the necessary arguments.
 
-Run the following command to start MITMf:
+Run the following command as example to start MITMf arp spoofing:
 
 ```bash
-sudo ./mitmf.sh -i eth0 --spoof --gateway 192.168.1.1 --target 192.168.1.100
+sudo ./mitmf.sh -i eth0 --spoof --arp --gateway 192.168.65.1
 ```
 
 ### 4. Customization
