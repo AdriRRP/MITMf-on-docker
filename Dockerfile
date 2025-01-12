@@ -6,6 +6,8 @@ RUN sed -i 's|http://deb.debian.org/debian|http://archive.debian.org/debian|' /e
     sed -i 's|http://security.debian.org/debian-security|http://archive.debian.org/debian-security|' /etc/apt/sources.list && \
     echo 'Acquire::Check-Valid-Until "false";' > /etc/apt/apt.conf.d/99no-check-valid-until && \
     apt-get update && apt-get install -y \
+    iproute2 \
+    net-tools \
     python2.7 \
     python2.7-dev \
     python-pip \
@@ -50,6 +52,3 @@ RUN pip install -r requirements.txt
 
 # Set entrypoint to run mitmf.py
 ENTRYPOINT ["python", "mitmf.py"]
-
-# Set CMD to provide default arguments if none are passed
-CMD []
